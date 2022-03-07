@@ -2,19 +2,21 @@ const express = require("express");
 
 const app = express();
 
-app.get("/books",allBooks,(req,res)=>
+app.get("/books",singleBook,(req,res)=>
 {
     return res.send("Fetching all books")
 })
 
-app.get("/book/:name",allBooks,(req,res)=>
+app.get("/book/:name",singleBook,(req,res)=>
 {
-    return res.send("Fetching all books")
+    return res.send({bookName:req.nam})
 })
 
-function allBooks(req,res,next)
+function singleBook(req,res,next)
 {
     console.log("Fetching all books")
+    const{nam}=req.params;
+    req.nam=nam
     next();
 }
 app.listen(5000,()=>{

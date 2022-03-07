@@ -23,7 +23,8 @@ app.get("/products", loggedIn("seller"), (req, res) => {
 function loggedIn(role) {
   return function logger(req, res, next) {
     if (role === "seller") {
-      return next();
+      console.log("Hi")
+       return next();
     }
     return res.send("Not allowed");
   };

@@ -1,6 +1,7 @@
 const express= require("express");
 const app= express();
 const Authors=require("../models/authore.models")
+const AuthorBook=require("../models/authorBook.models");
 
 app.get("",async(req,res)=>{
     try{
@@ -61,8 +62,7 @@ app.patch("/:id", async (req, res) => {
     try {
       console.log(req.params.authorId)
       const authorandbook = await AuthorBook.find({authorId:req.params.authorId})
-      .populate({path:"authorId",select:["userId"],
-      populate:{path:"userId",select:["firstname","lastname"]}
+      .populate({path:"authorId",select:["userId"],populate:{path:"userId",select:["firstname","lastname"]}
     })
     .populate({path:"bookId",select:["name"]})
       .lean()

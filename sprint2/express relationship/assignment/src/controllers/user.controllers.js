@@ -23,6 +23,7 @@ app.post("",async (req,res)=>{
 
 app.get("/:id",async(req,res)=>{
     try{
+      
         const users = await User.findById(req.params.id).lean().exec();
         return res.status(200).send(users);
     }

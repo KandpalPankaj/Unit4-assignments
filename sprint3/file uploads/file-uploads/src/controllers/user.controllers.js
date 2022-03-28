@@ -3,7 +3,7 @@ const express = require("express");
 const User = require("../models/user.models");
 
 // const { uploadFiles } = require("../middlewares/uploads");
-const upload = require("../middlewares/uploads")
+const upload = require("../middlewares/uploads");
 
 const router = express.Router();
 
